@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t navid/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true navid/docker-react npm run test
